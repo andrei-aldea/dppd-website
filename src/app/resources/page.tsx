@@ -112,24 +112,25 @@ export default function ResourcesPage() {
 					<h2 className='text-xl font-semibold'>Read the Full Essay</h2>
 				</div>
 				<div className='w-full h-[800px] border rounded-xl bg-muted/20 overflow-hidden shadow-inner'>
-					<object
-						data='/assets/essay.pdf'
-						type='application/pdf'
-						width='100%'
-						height='100%'
+					<iframe
+						src='/A Comparative Analysis of Modern Web Development Approaches.pdf'
+						className='w-full h-full border-none'
+						title='A Comparative Analysis of Modern Web Development Approaches'
+					/>
+				</div>
+				<div className='flex justify-center pt-4'>
+					<Button
+						asChild
+						variant='outline'
 					>
-						<div className='flex flex-col items-center justify-center h-full gap-4 text-center p-10'>
-							<p className='text-muted-foreground'>It appears you don&apos;t have a PDF plugin for this browser.</p>
-							<Button asChild>
-								<a
-									href='/assets/essay.pdf'
-									download
-								>
-									Download the PDF
-								</a>
-							</Button>
-						</div>
-					</object>
+						<a
+							href='/A Comparative Analysis of Modern Web Development Approaches.pdf'
+							download
+						>
+							<FileText className='mr-2 h-4 w-4' />
+							Download PDF
+						</a>
+					</Button>
 				</div>
 			</section>
 		</div>

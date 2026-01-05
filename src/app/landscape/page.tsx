@@ -1,5 +1,7 @@
+'use client'
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { AlertTriangle, Layers, Lock, TrendingUp, Users, XCircle } from 'lucide-react'
+import { AlertTriangle, Lock, TrendingUp, Users, XCircle } from 'lucide-react'
 
 export default function LandscapePage() {
 	return (
@@ -86,46 +88,6 @@ export default function LandscapePage() {
 						</p>
 					</div>
 				</div>
-			</section>
-
-			{/* Visual Object 2: The Customization Ceiling */}
-			<section className='max-w-3xl mx-auto text-center space-y-8 pt-8'>
-				<h2 className='text-2xl font-bold'>The Customization Ceiling</h2>
-
-				{/* Visual Placeholder */}
-				<div className='relative h-64 w-full bg-gradient-to-t from-muted/20 to-border/10 rounded-xl border-dashed border-2 border-border flex flex-col items-center justify-end overflow-hidden'>
-					{/* The Ceiling Line */}
-					<div className='absolute top-1/4 left-0 w-full h-[2px] bg-destructive/50 border-t border-destructive border-dashed flex items-center justify-center'>
-						<span className='bg-background px-2 text-xs font-mono text-destructive uppercase tracking-widest border border-destructive/20 rounded-full translate-y-[-50%]'>
-							Limit Reached
-						</span>
-					</div>
-
-					{/* The Growth bars */}
-					<div className='flex items-end justify-center gap-8 h-full pb-0 w-full px-10'>
-						{/* No Code Bar - hits ceiling */}
-						<div className='w-24 group relative h-full flex flex-col justify-end'>
-							<div className='h-[75%] w-full bg-muted rounded-t-md relative overflow-hidden transition-all duration-500 hover:bg-muted/80'>
-								<div className='absolute top-0 left-0 w-full bg-destructive/20 h-full animate-pulse' />
-							</div>
-							<span className='text-sm font-medium mt-2'>No-Code</span>
-						</div>
-
-						{/* Full Code Bar - breaks through */}
-						<div className='w-24 group relative h-full flex flex-col justify-end'>
-							<div className="h-[100%] w-full bg-primary rounded-t-md shadow-[0_0_20px_-5px_theme('colors.primary.DEFAULT')] relative overflow-hidden">
-								<div className='absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-primary-foreground/20 to-transparent' />
-							</div>
-							<span className='text-sm font-medium mt-2 text-primary'>Full-Code</span>
-						</div>
-					</div>
-
-					<Layers className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 text-muted-foreground/10' />
-				</div>
-				<p className='text-muted-foreground'>
-					No-code platforms are &quot;ideal for smaller projects&quot; but fundamentally limited. You remain confined to
-					pre-built templates and components.
-				</p>
 			</section>
 		</div>
 	)
