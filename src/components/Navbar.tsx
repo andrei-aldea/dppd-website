@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
 import {
 	NavigationMenu,
 	NavigationMenuItem,
@@ -7,7 +8,9 @@ import {
 	NavigationMenuList,
 	navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
+import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -36,25 +39,51 @@ export function Navbar() {
 					<NavigationMenuList className='hidden md:flex'>
 						{routes.map((route) => (
 							<NavigationMenuItem key={route.href}>
-								<Link
-									href={route.href}
-									legacyBehavior
-									passHref
-								>
-									<NavigationMenuLink
+								<NavigationMenuLink asChild>
+									<Link
+										href={route.href}
 										className={cn(
 											navigationMenuTriggerStyle(),
 											pathname === route.href && 'bg-accent/50 text-accent-foreground'
 										)}
 									>
 										{route.label}
-									</NavigationMenuLink>
-								</Link>
+									</Link>
+								</NavigationMenuLink>
 							</NavigationMenuItem>
 						))}
 					</NavigationMenuList>
 				</NavigationMenu>
-				{/* Mobile menu could go here, for now simple hidden on mobile */}
+
+				{/* Mobile Menu */}
+				<Sheet>
+					<SheetTrigger asChild>
+						<Button
+							variant='ghost'
+							size='icon'
+							className='md:hidden'
+						>
+							<Menu className='h-5 w-5' />
+							<span className='sr-only'>Toggle menu</span>
+						</Button>
+					</SheetTrigger>
+					<SheetContent side='right'>
+						<div className='flex flex-col gap-4 mt-8'>
+							{routes.map((route) => (
+								<Link
+									key={route.href}
+									href={route.href}
+									className={cn(
+										'text-lg font-medium transition-colors hover:text-primary',
+										pathname === route.href ? 'text-primary' : 'text-muted-foreground'
+									)}
+								>
+									{route.label}
+								</Link>
+							))}
+						</div>
+					</SheetContent>
+				</Sheet>
 			</div>
 		</header>
 	)
