@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { BookOpen, ExternalLink, FileText, Youtube } from 'lucide-react'
+import { BookOpen, ExternalLink, FileSpreadsheet, FileText, Youtube } from 'lucide-react'
 import Link from 'next/link'
 
 export default function ResourcesPage() {
@@ -132,6 +132,35 @@ export default function ResourcesPage() {
 						</a>
 					</Button>
 				</div>
+			</section>
+
+			{/* Additional Course Materials */}
+			<section className='space-y-4 pt-8 border-t'>
+				<div className='flex items-center gap-2 mb-2'>
+					<FileSpreadsheet className='w-5 h-5 text-emerald-600' />
+					<h2 className='text-xl font-semibold'>Course Materials</h2>
+				</div>
+				<Card>
+					<CardHeader>
+						<CardTitle className='text-lg'>Management Decision Evaluation</CardTitle>
+						<CardDescription>Module III Assessment Material</CardDescription>
+					</CardHeader>
+					<CardContent>
+						<Button
+							asChild
+							variant='outline'
+							className='w-full sm:w-auto'
+						>
+							<a
+								href='/Evaluare Modul III - Managementul deciziilor manageriale.xlsx'
+								download
+							>
+								<FileSpreadsheet className='mr-2 h-4 w-4 text-emerald-600' />
+								Download Excel Evaluation
+							</a>
+						</Button>
+					</CardContent>
+				</Card>
 			</section>
 		</div>
 	)
