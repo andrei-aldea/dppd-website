@@ -1,24 +1,28 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { FadeIn } from '@/components/ui/fade-in'
 import { BookOpen, ExternalLink, FileSpreadsheet, FileText, Youtube } from 'lucide-react'
 import Link from 'next/link'
 
 export default function ResourcesPage() {
 	return (
-		<div className='space-y-16 py-10 max-w-6xl mx-auto'>
-			<section className='text-center space-y-4'>
+		<div className='mx-auto max-w-6xl space-y-16 py-10'>
+			<FadeIn className='space-y-4 text-center'>
 				<h1 className='text-4xl font-bold tracking-tight'>Resources</h1>
-				<p className='text-xl text-muted-foreground'>Further reading, viewing, and tools for the modern developer.</p>
-			</section>
+				<p className='text-muted-foreground text-xl'>Further reading, viewing, and tools for the modern developer.</p>
+			</FadeIn>
 
-			<div className='grid md:grid-cols-3 gap-8'>
+			<div className='grid gap-8 md:grid-cols-3'>
 				{/* YouTube Embed */}
-				<div className='md:col-span-2 space-y-4'>
-					<div className='flex items-center gap-2 mb-2'>
-						<Youtube className='w-5 h-5 text-red-600' />
+				<FadeIn
+					delay={0.2}
+					className='space-y-4 md:col-span-2'
+				>
+					<div className='mb-2 flex items-center gap-2'>
+						<Youtube className='h-5 w-5 text-red-600' />
 						<h2 className='text-xl font-semibold'>Featured Tutorial</h2>
 					</div>
-					<div className='aspect-video w-full rounded-xl overflow-hidden border bg-muted shadow-lg'>
+					<div className='bg-muted aspect-video w-full overflow-hidden rounded-xl border shadow-lg'>
 						<iframe
 							width='100%'
 							height='100%'
@@ -30,15 +34,18 @@ export default function ResourcesPage() {
 							allowFullScreen
 						></iframe>
 					</div>
-					<p className='text-sm text-muted-foreground'>
+					<p className='text-muted-foreground text-sm'>
 						Learn how Next.js powers the &quot;Architected Solution&quot; for enterprise-grade web applications.
 					</p>
-				</div>
+				</FadeIn>
 
 				{/* Bibliography Links */}
-				<div className='space-y-4'>
-					<div className='flex items-center gap-2 mb-2'>
-						<BookOpen className='w-5 h-5 text-primary' />
+				<FadeIn
+					delay={0.4}
+					className='space-y-4'
+				>
+					<div className='mb-2 flex items-center gap-2'>
+						<BookOpen className='text-primary h-5 w-5' />
 						<h2 className='text-xl font-semibold'>Bibliography</h2>
 					</div>
 					<Card>
@@ -49,7 +56,7 @@ export default function ResourcesPage() {
 						<CardContent className='grid gap-3'>
 							<Button
 								variant='outline'
-								className='w-full justify-start h-auto py-4'
+								className='h-auto w-full justify-start py-4'
 								asChild
 							>
 								<Link
@@ -59,15 +66,15 @@ export default function ResourcesPage() {
 								>
 									<div className='flex flex-col items-start gap-1'>
 										<span className='flex items-center gap-2 font-semibold'>
-											v0.dev <ExternalLink className='w-3 h-3' />
+											v0.dev <ExternalLink className='h-3 w-3' />
 										</span>
-										<span className='text-xs text-muted-foreground'>AI Generation Tool</span>
+										<span className='text-muted-foreground text-xs'>AI Generation Tool</span>
 									</div>
 								</Link>
 							</Button>
 							<Button
 								variant='outline'
-								className='w-full justify-start h-auto py-4'
+								className='h-auto w-full justify-start py-4'
 								asChild
 							>
 								<Link
@@ -77,15 +84,15 @@ export default function ResourcesPage() {
 								>
 									<div className='flex flex-col items-start gap-1'>
 										<span className='flex items-center gap-2 font-semibold'>
-											Next.js <ExternalLink className='w-3 h-3' />
+											Next.js <ExternalLink className='h-3 w-3' />
 										</span>
-										<span className='text-xs text-muted-foreground'>The Framework</span>
+										<span className='text-muted-foreground text-xs'>The Framework</span>
 									</div>
 								</Link>
 							</Button>
 							<Button
 								variant='outline'
-								className='w-full justify-start h-auto py-4'
+								className='h-auto w-full justify-start py-4'
 								asChild
 							>
 								<Link
@@ -95,27 +102,30 @@ export default function ResourcesPage() {
 								>
 									<div className='flex flex-col items-start gap-1'>
 										<span className='flex items-center gap-2 font-semibold'>
-											WebDeveloper.com <ExternalLink className='w-3 h-3' />
+											WebDeveloper.com <ExternalLink className='h-3 w-3' />
 										</span>
-										<span className='text-xs text-muted-foreground'>Dev Community</span>
+										<span className='text-muted-foreground text-xs'>Dev Community</span>
 									</div>
 								</Link>
 							</Button>
 						</CardContent>
 					</Card>
-				</div>
+				</FadeIn>
 			</div>
 
 			{/* PDF View Section */}
-			<section className='space-y-4 pt-8 border-t'>
-				<div className='flex items-center gap-2 mb-2'>
-					<FileText className='w-5 h-5 text-primary' />
+			<FadeIn
+				delay={0.6}
+				className='space-y-4 border-t pt-8'
+			>
+				<div className='mb-2 flex items-center gap-2'>
+					<FileText className='text-primary h-5 w-5' />
 					<h2 className='text-xl font-semibold'>Read the Full Essay</h2>
 				</div>
-				<div className='w-full h-[800px] border rounded-xl bg-muted/20 overflow-hidden shadow-inner'>
+				<div className='bg-muted/20 h-[800px] w-full overflow-hidden rounded-xl border shadow-inner'>
 					<iframe
 						src='/A Comparative Analysis of Modern Web Development Approaches.pdf'
-						className='w-full h-full border-none'
+						className='h-full w-full border-none'
 						title='A Comparative Analysis of Modern Web Development Approaches'
 					/>
 				</div>
@@ -133,18 +143,21 @@ export default function ResourcesPage() {
 						</a>
 					</Button>
 				</div>
-			</section>
+			</FadeIn>
 
 			{/* Additional Course Materials */}
-			<section className='space-y-4 pt-8 border-t'>
-				<div className='flex items-center gap-2 mb-2'>
-					<FileSpreadsheet className='w-5 h-5 text-emerald-600' />
+			<FadeIn
+				delay={0.8}
+				className='space-y-4 border-t pt-8'
+			>
+				<div className='mb-2 flex items-center gap-2'>
+					<FileSpreadsheet className='h-5 w-5 text-emerald-600' />
 					<h2 className='text-xl font-semibold'>Course Materials</h2>
 				</div>
 				<Card>
 					<CardHeader>
 						<CardTitle className='text-lg'>Management Decision Evaluation</CardTitle>
-						<CardDescription>Module III Assessment Material</CardDescription>
+						<CardDescription>Module III Assessment Assessment Material</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<Button
@@ -162,7 +175,7 @@ export default function ResourcesPage() {
 						</Button>
 					</CardContent>
 				</Card>
-			</section>
+			</FadeIn>
 		</div>
 	)
 }

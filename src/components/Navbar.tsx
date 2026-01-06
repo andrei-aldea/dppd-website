@@ -27,8 +27,8 @@ export function Navbar() {
 	const pathname = usePathname()
 
 	return (
-		<header className='sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60'>
-			<div className='container flex h-14 max-w-screen-2xl items-center mx-auto px-4'>
+		<header className='border-border/40 bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur'>
+			<div className='container mx-auto flex h-14 max-w-screen-2xl items-center px-4'>
 				<Link
 					href='/'
 					className='mr-6 flex items-center space-x-2'
@@ -68,13 +68,13 @@ export function Navbar() {
 						</Button>
 					</SheetTrigger>
 					<SheetContent side='right'>
-						<div className='flex flex-col gap-4 mt-8'>
+						<div className='mt-8 flex flex-col gap-4'>
 							{routes.map((route) => (
 								<Link
 									key={route.href}
 									href={route.href}
 									className={cn(
-										'text-lg font-medium transition-colors hover:text-primary',
+										'hover:text-primary text-lg font-medium transition-colors',
 										pathname === route.href ? 'text-primary' : 'text-muted-foreground'
 									)}
 								>

@@ -1,19 +1,23 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
+import { FadeIn } from '@/components/ui/fade-in'
 import { Building, Building2, Lightbulb, User } from 'lucide-react'
 
 export default function StrategyPage() {
 	return (
-		<div className='space-y-16 py-10 max-w-4xl mx-auto'>
-			<section className='text-center space-y-4'>
+		<div className='mx-auto max-w-4xl space-y-16 py-10'>
+			<FadeIn className='space-y-4 text-center'>
 				<h1 className='text-4xl font-bold tracking-tight'>Strategic Recommendations</h1>
-				<p className='text-xl text-muted-foreground'>
+				<p className='text-muted-foreground text-xl'>
 					Which approach is right for your project? The prescriptive guide.
 				</p>
-			</section>
+			</FadeIn>
 
 			{/* Recommendations Accordion */}
-			<section className='bg-card border rounded-xl overflow-hidden shadow-sm'>
+			<FadeIn
+				delay={0.2}
+				className='bg-card overflow-hidden rounded-xl border shadow-sm'
+			>
 				<Accordion
 					type='single'
 					collapsible
@@ -23,20 +27,20 @@ export default function StrategyPage() {
 						value='item-1'
 						className='bg-background/50 px-6'
 					>
-						<AccordionTrigger className='hover:no-underline py-6'>
+						<AccordionTrigger className='py-6 hover:no-underline'>
 							<div className='flex items-center gap-4 text-left'>
-								<User className='w-6 h-6 text-blue-500' />
+								<User className='h-6 w-6 text-blue-500' />
 								<div>
-									<div className='font-semibold text-lg'>For the Non-Technical Founder</div>
-									<div className='text-sm text-muted-foreground font-normal'>Validating an Idea</div>
+									<div className='text-lg font-semibold'>For the Non-Technical Founder</div>
+									<div className='text-muted-foreground text-sm font-normal'>Validating an Idea</div>
 								</div>
 							</div>
 						</AccordionTrigger>
-						<AccordionContent className='pb-6 text-muted-foreground leading-relaxed'>
+						<AccordionContent className='text-muted-foreground pb-6 leading-relaxed'>
 							<div className='mb-4'>
 								<Badge
 									variant='outline'
-									className='border-blue-500 text-blue-500 bg-blue-500/10'
+									className='border-blue-500 bg-blue-500/10 text-blue-500'
 								>
 									Recommendation: Approach 1 (Pure No-Code)
 								</Badge>
@@ -52,18 +56,18 @@ export default function StrategyPage() {
 
 					<AccordionItem
 						value='item-2'
-						className='bg-primary/5 px-6 border-l-4 border-l-primary'
+						className='bg-primary/5 border-l-primary border-l-4 px-6'
 					>
-						<AccordionTrigger className='hover:no-underline py-6'>
+						<AccordionTrigger className='py-6 hover:no-underline'>
 							<div className='flex items-center gap-4 text-left'>
-								<Building className='w-6 h-6 text-primary' />
+								<Building className='text-primary h-6 w-6' />
 								<div>
-									<div className='font-semibold text-lg'>For the Technical Startup</div>
-									<div className='text-sm text-primary/80 font-normal'>Building an MVP</div>
+									<div className='text-lg font-semibold'>For the Technical Startup</div>
+									<div className='text-primary/80 text-sm font-normal'>Building an MVP</div>
 								</div>
 							</div>
 						</AccordionTrigger>
-						<AccordionContent className='pb-6 text-muted-foreground leading-relaxed'>
+						<AccordionContent className='text-muted-foreground pb-6 leading-relaxed'>
 							<div className='mb-4'>
 								<Badge className='bg-primary hover:bg-primary'>Recommendation: Approach 2 (AI-Assisted)</Badge>
 							</div>
@@ -80,16 +84,16 @@ export default function StrategyPage() {
 						value='item-3'
 						className='bg-background/50 px-6'
 					>
-						<AccordionTrigger className='hover:no-underline py-6'>
+						<AccordionTrigger className='py-6 hover:no-underline'>
 							<div className='flex items-center gap-4 text-left'>
-								<Building2 className='w-6 h-6 text-zinc-400' />
+								<Building2 className='h-6 w-6 text-zinc-400' />
 								<div>
-									<div className='font-semibold text-lg'>For the Enterprise</div>
-									<div className='text-sm text-muted-foreground font-normal'>Building a Core Product</div>
+									<div className='text-lg font-semibold'>For the Enterprise</div>
+									<div className='text-muted-foreground text-sm font-normal'>Building a Core Product</div>
 								</div>
 							</div>
 						</AccordionTrigger>
-						<AccordionContent className='pb-6 text-muted-foreground leading-relaxed'>
+						<AccordionContent className='text-muted-foreground pb-6 leading-relaxed'>
 							<div className='mb-4'>
 								<Badge variant='secondary'>Recommendation: Approach 3 (Full-Code)</Badge>
 							</div>
@@ -101,16 +105,19 @@ export default function StrategyPage() {
 						</AccordionContent>
 					</AccordionItem>
 				</Accordion>
-			</section>
+			</FadeIn>
 
 			{/* Future Vision */}
-			<section className='space-y-8 pt-10 border-t'>
-				<div className='flex items-center gap-2 mb-6'>
-					<Lightbulb className='w-6 h-6 text-yellow-500' />
+			<FadeIn
+				delay={0.4}
+				className='space-y-8 border-t pt-10'
+			>
+				<div className='mb-6 flex items-center gap-2'>
+					<Lightbulb className='h-6 w-6 text-yellow-500' />
 					<h2 className='text-2xl font-bold'>The Future Vision</h2>
 				</div>
 
-				<div className='grid md:grid-cols-2 gap-10'>
+				<div className='grid gap-10 md:grid-cols-2'>
 					<div className='space-y-4'>
 						<h3 className='text-xl font-semibold'>Augmentation, Not Replacement</h3>
 						<p className='text-muted-foreground leading-relaxed'>
@@ -130,7 +137,7 @@ export default function StrategyPage() {
 						</p>
 					</div>
 				</div>
-			</section>
+			</FadeIn>
 		</div>
 	)
 }
