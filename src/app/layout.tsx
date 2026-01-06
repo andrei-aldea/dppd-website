@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-	title: 'From Prompt to Production',
-	description: 'A Comparative Analysis of Modern Web Development Approaches'
+	title: 'De la Prompt la Producție',
+	description: 'O Analiză Comparativă a Abordărilor Moderne de Dezvoltare Web'
 }
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html
-			lang='en'
+			lang='ro'
 			className='dark'
 		>
 			<body

@@ -4,12 +4,21 @@ import { FadeIn } from '@/components/ui/fade-in'
 import { BookOpen, ExternalLink, FileSpreadsheet, FileText, Youtube } from 'lucide-react'
 import Link from 'next/link'
 
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: 'Resurse și Materiale | De la Prompt la Producție',
+	description: 'Bibliografie, tutoriale video și materiale de curs descărcabile.'
+}
+
 export default function ResourcesPage() {
 	return (
 		<div className='mx-auto max-w-6xl space-y-16 py-10'>
 			<FadeIn className='space-y-4 text-center'>
-				<h1 className='text-4xl font-bold tracking-tight'>Resources</h1>
-				<p className='text-muted-foreground text-xl'>Further reading, viewing, and tools for the modern developer.</p>
+				<h1 className='text-4xl font-bold tracking-tight'>Resurse</h1>
+				<p className='text-muted-foreground text-xl'>
+					Lecturi suplimentare, vizionări și instrumente pentru dezvoltatorul modern.
+				</p>
 			</FadeIn>
 
 			<div className='grid gap-8 md:grid-cols-3'>
@@ -20,7 +29,7 @@ export default function ResourcesPage() {
 				>
 					<div className='mb-2 flex items-center gap-2'>
 						<Youtube className='h-5 w-5 text-red-600' />
-						<h2 className='text-xl font-semibold'>Featured Tutorial</h2>
+						<h2 className='text-xl font-semibold'>Tutorial Recomandat</h2>
 					</div>
 					<div className='bg-muted aspect-video w-full overflow-hidden rounded-xl border shadow-lg'>
 						<iframe
@@ -35,7 +44,7 @@ export default function ResourcesPage() {
 						></iframe>
 					</div>
 					<p className='text-muted-foreground text-sm'>
-						Learn how Next.js powers the &quot;Architected Solution&quot; for enterprise-grade web applications.
+						Află cum Next.js alimentează &quot;Soluția Arhitecturată&quot; pentru aplicații web de nivel enterprise.
 					</p>
 				</FadeIn>
 
@@ -46,12 +55,12 @@ export default function ResourcesPage() {
 				>
 					<div className='mb-2 flex items-center gap-2'>
 						<BookOpen className='text-primary h-5 w-5' />
-						<h2 className='text-xl font-semibold'>Bibliography</h2>
+						<h2 className='text-xl font-semibold'>Bibliografie</h2>
 					</div>
 					<Card>
 						<CardHeader>
-							<CardTitle className='text-lg'>Key References</CardTitle>
-							<CardDescription>Essential tools and communities.</CardDescription>
+							<CardTitle className='text-lg'>Referințe Cheie</CardTitle>
+							<CardDescription>Instrumente esențiale și comunități.</CardDescription>
 						</CardHeader>
 						<CardContent className='grid gap-3'>
 							<Button
@@ -68,7 +77,7 @@ export default function ResourcesPage() {
 										<span className='flex items-center gap-2 font-semibold'>
 											v0.dev <ExternalLink className='h-3 w-3' />
 										</span>
-										<span className='text-muted-foreground text-xs'>AI Generation Tool</span>
+										<span className='text-muted-foreground text-xs'>Instrument Generare AI</span>
 									</div>
 								</Link>
 							</Button>
@@ -86,7 +95,7 @@ export default function ResourcesPage() {
 										<span className='flex items-center gap-2 font-semibold'>
 											Next.js <ExternalLink className='h-3 w-3' />
 										</span>
-										<span className='text-muted-foreground text-xs'>The Framework</span>
+										<span className='text-muted-foreground text-xs'>Framework-ul</span>
 									</div>
 								</Link>
 							</Button>
@@ -104,7 +113,7 @@ export default function ResourcesPage() {
 										<span className='flex items-center gap-2 font-semibold'>
 											WebDeveloper.com <ExternalLink className='h-3 w-3' />
 										</span>
-										<span className='text-muted-foreground text-xs'>Dev Community</span>
+										<span className='text-muted-foreground text-xs'>Comunitate Dev</span>
 									</div>
 								</Link>
 							</Button>
@@ -120,13 +129,13 @@ export default function ResourcesPage() {
 			>
 				<div className='mb-2 flex items-center gap-2'>
 					<FileText className='text-primary h-5 w-5' />
-					<h2 className='text-xl font-semibold'>Read the Full Essay</h2>
+					<h2 className='text-xl font-semibold'>Citește Eseul Complet</h2>
 				</div>
 				<div className='bg-muted/20 h-[800px] w-full overflow-hidden rounded-xl border shadow-inner'>
 					<iframe
 						src='/A Comparative Analysis of Modern Web Development Approaches.pdf'
 						className='h-full w-full border-none'
-						title='A Comparative Analysis of Modern Web Development Approaches'
+						title='O Analiză Comparativă a Abordărilor Moderne de Dezvoltare Web'
 					/>
 				</div>
 				<div className='flex justify-center pt-4'>
@@ -139,7 +148,7 @@ export default function ResourcesPage() {
 							download
 						>
 							<FileText className='mr-2 h-4 w-4' />
-							Download PDF
+							Descarcă PDF
 						</a>
 					</Button>
 				</div>
@@ -152,12 +161,12 @@ export default function ResourcesPage() {
 			>
 				<div className='mb-2 flex items-center gap-2'>
 					<FileSpreadsheet className='h-5 w-5 text-emerald-600' />
-					<h2 className='text-xl font-semibold'>Course Materials</h2>
+					<h2 className='text-xl font-semibold'>Materiale de Curs</h2>
 				</div>
 				<Card>
 					<CardHeader>
-						<CardTitle className='text-lg'>Management Decision Evaluation</CardTitle>
-						<CardDescription>Module III Assessment Assessment Material</CardDescription>
+						<CardTitle className='text-lg'>Evaluare Decizii Manageriale</CardTitle>
+						<CardDescription>Material Evaluare Modul III</CardDescription>
 					</CardHeader>
 					<CardContent>
 						<Button
@@ -170,7 +179,7 @@ export default function ResourcesPage() {
 								download
 							>
 								<FileSpreadsheet className='mr-2 h-4 w-4 text-emerald-600' />
-								Download Excel Evaluation
+								Descarcă Evaluare Excel
 							</a>
 						</Button>
 					</CardContent>

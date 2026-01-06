@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import {
 	NavigationMenu,
 	NavigationMenuItem,
@@ -8,83 +7,91 @@ import {
 	NavigationMenuList,
 	navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
-import { Menu } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 
 const routes = [
-	{ href: '/', label: 'Home' },
-	{ href: '/landscape', label: 'The Landscape' },
-	{ href: '/approaches', label: 'The Approaches' },
-	{ href: '/analysis', label: 'Analysis' },
-	{ href: '/strategy', label: 'Strategy' },
-	{ href: '/resources', label: 'Resources' }
+	{ href: '/', label: 'Acasă' },
+	{ href: '/landscape', label: 'Peisajul' },
+	{ href: '/approaches', label: 'Abordările' },
+	{ href: '/analysis', label: 'Analiză' },
+	{ href: '/strategy', label: 'Strategie' },
+	{ href: '/resources', label: 'Resurse' }
 ]
 
 export function Navbar() {
 	const pathname = usePathname()
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
 	return (
 		<header className='border-border/40 bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur'>
-			<div className='container mx-auto flex h-14 max-w-screen-2xl items-center px-4'>
+			<div className='container mx-auto flex h-14 items-center justify-between px-4'>
+				{/* Logo / Title */}
 				<Link
 					href='/'
 					className='mr-6 flex items-center space-x-2'
 				>
-					<span className='hidden font-bold sm:inline-block'>From Prompt to Production</span>
+					<span className='font-bold'>De la Prompt la Producție</span>
 				</Link>
-				<NavigationMenu>
-					<NavigationMenuList className='hidden md:flex'>
+
+				{/* Desktop Navigation */}
+				<NavigationMenu className='hidden md:flex'>
+					<NavigationMenuList>
 						{routes.map((route) => (
 							<NavigationMenuItem key={route.href}>
-								<NavigationMenuLink asChild>
-									<Link
-										href={route.href}
+								<Link
+									href={route.href}
+									legacyBehavior
+									passHref
+								>
+									<NavigationMenuLink
 										className={cn(
 											navigationMenuTriggerStyle(),
-											pathname === route.href && 'bg-accent/50 text-accent-foreground'
+											'bg-transparent',
+											pathname === route.href && 'text-primary font-bold'
 										)}
 									>
 										{route.label}
-									</Link>
-								</NavigationMenuLink>
+									</NavigationMenuLink>
+								</Link>
 							</NavigationMenuItem>
 						))}
 					</NavigationMenuList>
 				</NavigationMenu>
 
-				{/* Mobile Menu */}
-				<Sheet>
-					<SheetTrigger asChild>
-						<Button
-							variant='ghost'
-							size='icon'
-							className='md:hidden'
-						>
-							<Menu className='h-5 w-5' />
-							<span className='sr-only'>Toggle menu</span>
-						</Button>
-					</SheetTrigger>
-					<SheetContent side='right'>
-						<div className='mt-8 flex flex-col gap-4'>
-							{routes.map((route) => (
-								<Link
-									key={route.href}
-									href={route.href}
-									className={cn(
-										'hover:text-primary text-lg font-medium transition-colors',
-										pathname === route.href ? 'text-primary' : 'text-muted-foreground'
-									)}
-								>
-									{route.label}
-								</Link>
-							))}
-						</div>
-					</SheetContent>
-				</Sheet>
+				{/* Mobile Menu Trigger */}
+				<button
+					className='md:hidden'
+					onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+					aria-label='Toggle menu'
+				>
+					{isMobileMenuOpen ? <X className='h-6 w-6' /> : <Menu className='h-6 w-6' />}
+				</button>
 			</div>
+
+			{/* Mobile Menu Dropdown */}
+			{isMobileMenuOpen && (
+				<div className='bg-background border-b shadow-lg md:hidden'>
+					<nav className='container mx-auto flex flex-col space-y-2 p-4 pb-6'>
+						{routes.map((route) => (
+							<Link
+								key={route.href}
+								href={route.href}
+								className={cn(
+									'hover:text-primary py-2 text-sm font-medium transition-colors',
+									pathname === route.href ? 'text-primary font-bold' : 'text-muted-foreground'
+								)}
+								onClick={() => setIsMobileMenuOpen(false)}
+							>
+								{route.label}
+							</Link>
+						))}
+					</nav>
+				</div>
+			)}
 		</header>
 	)
 }
