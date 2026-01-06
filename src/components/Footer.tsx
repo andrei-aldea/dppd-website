@@ -6,7 +6,7 @@ export function Footer() {
 					Built based on &quot;A Comparative Analysis of Modern Web Development Approaches&quot;.
 				</p>
 				<div className='flex items-center gap-4'>
-					<span className='text-muted-foreground text-sm'>© 2026</span>
+					<span className='text-muted-foreground text-sm'>© 2026 Aldea Andrei</span>
 				</div>
 			</div>
 		</footer>

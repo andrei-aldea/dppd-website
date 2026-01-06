@@ -22,10 +22,11 @@ export default function ResourcesPage() {
 						<iframe
 							width='100%'
 							height='100%'
-							src='https://www.youtube.com/embed/SjcWHzprkk0'
-							title='Next.js Tutorial'
+							src='https://www.youtube.com/embed/I1V9YWqRIeI?si=aHOJsFFAYQ6FBlPh'
+							title='YouTube video player'
 							frameBorder='0'
-							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+							referrerPolicy='strict-origin-when-cross-origin'
 							allowFullScreen
 						></iframe>
 					</div>
